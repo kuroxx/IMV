@@ -9,6 +9,7 @@
 /* ------------------------------
     	Rain
 ------------------------------ */
+var rain = [];
 var speed = 2;
 
 function Rain(_x, _y) {
@@ -43,13 +44,13 @@ function mouseDragged() {
 }
 
 function drawRain() {
-//Draws rain (max 50)
+//Draws rain (max 20)
 	for (var i = 0; i < rain.length; i++) {
 		rain[i].display();	
 		rain[i].fall();
 	}
 
-	if (rain.length > 50) {
+	if (rain.length > 20) {
 		rain.splice(0, 1);
 	}
 }
@@ -111,42 +112,42 @@ this.hit = collide;
 	}
 }
 
+function drawMusicBox () {
+	// body...
+	// musicBox1.display();
+  	// musicBox2.display();
+}
+
 /* ------------------------------
     	Amplitude
 ------------------------------ */
+var volHistory = [];
+
 function drawAmp() {
  push();
-
 	  var vol = amp.getLevel();
 	  volHistory.push(vol);
 
 	  stroke(255);
 	  noFill();
 
-	// Shift graph 
-	  translate(0, height / 3);
+	// Shift graph down
+	  translate(0, height / 2);
 
 	// Graphs amplitude (left to right)
 	  beginShape();
 		  for(var i = 0; i < volHistory.length; i++) {
 		  	// Draws point depending on volume level
 		  	// At 1, draws point at the top
-		  	var y = map(volHistory[i], 0, 1, height/2, 0);
+		  		//map(value, start1, stop1, start2, stop2)
+		  	var y = map(volHistory[i], 0, 1, height/3, 0);
 		  	vertex(i, y);
 		  }
 	  endShape();
+ pop();
 
-  pop();
-
-  // console.log(vol);
-
-  if (volHistory.length > width - 50) {
+  if (volHistory.length > width - 20) {
   	volHistory.splice(0, 1);
   }
 
-  // Draws a red line to indicate current position
-  // stroke(255, 0, 0);
-  // line(volHistory.length, 0, volHistory.length, height);
-
-   // ellipse(width/2, width/2, 400, vol * 400);
 }
