@@ -30,12 +30,15 @@ function setup() {
 	amp = new p5.Amplitude();
 	playOsc();
 
+	createGalaxy();
+	sounds[0].play();
+	sounds[0].setVolume(0.5);
 	// if (collide == true) {
 	// 	sounds[0].play();
 	// }
 
 // console.log(rain);
-
+ 
 button = createButton('play/pause');
 button.mousePressed(toggle);
 
@@ -97,4 +100,5 @@ function draw() {
 	} else if (state == 2) {
 		instructionScreen();
 	}
+
 }

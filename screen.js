@@ -15,22 +15,39 @@ function startScreen() {
 	howToButton.display();
 }
 
+var screen = true;
+
 function mainScreen() {
 	drawRain();	
-  	drawAmp();
  	// drawMusicBox();
+ 	drawNavigator();
+
+ 	if (screen) {
+ 		drawAmp();
+ 	} else if (!screen) {
+ 		drawGalaxy();
+ 	}
+
 }
 
 function instructionScreen () {
 	fill(255);
 	textAlign(CENTER);
-  	textSize(50);
   	textFont("Georgia");
-
+  
+  	textSize(50);
 	text("How to play", width / 2, height / 6);
-	textSize(20);
-	text("An Interactive Music Visualiser", width / 2, height / 3 );
+	
+	stroke(255);
+	line(100, height / 6 + 50, 500, height / 6 + 50);
 
+	textSize(20);
+	text("Use your mouse to interact with elements on screen", width / 2, height / 3 );
+	text("Use arrow keys to navigate and create different effects", width / 2, height / 3 + 50);
+	text("(Press Esc to go back)", width / 2, height / 3 + 100);
+
+	textSize(50);
+  	text("Enjoy playing!", width / 2, height / 2 + 200);
 }
 
 /* ------------------------------
@@ -87,14 +104,33 @@ function mousePressed () {
   	}
 }
 
+/* ------------------------------
+    	Key Press
+------------------------------ */
 function keyPressed () {
 	if (keyCode == ESCAPE) {
 		state = 0;
 	}
 
-	// if (keyCode == SPACEBAR && state == 1){
-	// 	// Do something...
-	// }
+	//Spacebar
+	if (keyCode == 32 && state == 1){
+		 screen = !screen;
+	// CHANGE THE VIEW --> GRAPHING AMPLITUDE --> POUNDING SCREEN? 
+	}
+
+	// Vertical movement
+	if (keyCode == UP_ARROW && navY < height && navY > 0) {
+		navY-=10;
+	} else if (keyCode == DOWN_ARROW && navY < height && navY > 0) {
+		navY+=10;
+	} 
+
+	// Horizontal movement
+	if (keyCode == RIGHT_ARROW && navX < height && navX > 0) {
+		navX+=10;
+	} else if (keyCode == LEFT_ARROW && navX < height && navX > 0) {
+		navX-=10;
+	} 
 
 	return false; // To prevent any default behaviour
 }
