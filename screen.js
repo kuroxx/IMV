@@ -42,12 +42,13 @@ function instructionScreen () {
 	line(100, height / 6 + 50, 500, height / 6 + 50);
 
 	textSize(20);
-	text("Use your mouse to interact with elements on screen", width / 2, height / 3 );
-	text("Use arrow keys to navigate and create different effects", width / 2, height / 3 + 50);
-	text("(Press Esc to go back)", width / 2, height / 3 + 100);
+	text("Use your MOUSE to interact with elements on screen", width / 2, height / 3 );
+	text("Use ARROW KEYS to navigate and create different effects", width / 2, height / 3 + 50);
+	text("Use the SPACEBAR to switch screens", width / 2, height / 3 + 100);
+	text("(Press Esc to go back)", width / 2, height / 3 + 150);
 
 	textSize(50);
-  	text("Enjoy playing!", width / 2, height / 2 + 200);
+  	text("Get creative!", width / 2, height / 2 + 200);
 }
 
 /* ------------------------------
@@ -108,14 +109,14 @@ function mousePressed () {
     	Key Press
 ------------------------------ */
 function keyPressed () {
+	// Go back to Main Screen
 	if (keyCode == ESCAPE) {
 		state = 0;
 	}
 
-	//Spacebar
+	//Spacebar to change screen view
 	if (keyCode == 32 && state == 1){
 		 screen = !screen;
-	// CHANGE THE VIEW --> GRAPHING AMPLITUDE --> POUNDING SCREEN? 
 	}
 
 	// Vertical movement

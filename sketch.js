@@ -2,24 +2,32 @@
     To Preload
 ------------------------------ */
 var sounds;
+var imgs = [];
 
 function loadAllSound(){
-	var soundNames = ['shigatsu.mp3'];
+	var soundNames = ['shigatsu.mp3', 'bradovic_piano.wav', 'orchestra_piano.wav', 'symphony_sounds.wav'];
 
 	sounds = soundNames.map(function(name) {
 		return loadSound('assets/' + name);
 	});
 }
 
+function loadAllImg () {
+	var imgNames = ['note.png', 'ufo.png'];
+	for (var i = 0; i < imgNames.length; i++) {
+		imgs.push(loadImage("assets/" + imgNames[i]));
+	}
+}
+
 function preload() {
 	loadAllSound();
+	loadAllImg();
 }
 
 /* ------------------------------
     	Setup
 ------------------------------ */
 var amp;
-
 var osc;
 var env;
 var playing = false;
@@ -31,8 +39,10 @@ function setup() {
 	playOsc();
 
 	createGalaxy();
+	
 	sounds[0].play();
 	sounds[0].setVolume(0.5);
+
 	// if (collide == true) {
 	// 	sounds[0].play();
 	// }
