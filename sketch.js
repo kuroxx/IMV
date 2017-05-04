@@ -50,12 +50,7 @@ function setup() {
 
 	createGalaxy();
 	makeBeat();
-	
-	// sounds[0].play();
-	// sounds[0].setVolume(0.5);
-
-// console.log(rain);
- 
+	 
 button = createButton('Add');
 button.mousePressed(toggle);
 }
