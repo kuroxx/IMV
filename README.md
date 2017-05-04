@@ -1,21 +1,27 @@
-# Musicus (Y1 Intro to Programming Term 2 Project)
+# Musicus - (Y1 Intro to Programming Term 2 Project)
 
 An interactive music visualiser.
 
 ## Variables & if statements
 
-Baseline (4 marks) | Basic (max 2 marks) | Advanced (max 2 marks)
------------- | -------------| -------------
-- [x] Basic program with setup and draw | - [x] At least 1 variable 	| - [x] Nested if statements
-										| - [x] At least 1 if statement	| - [x] Boolean variables
-										| - [x] Several variables 		| - [ ] Complex boolean conditions
+[x] 	| Baseline (4 marks) 								| Basic (max 2 marks) 					| Advanced (max 2 marks)
+---------------------|------------------ 	| ----------------------------- | --------------------------------
+- [x]	| Basic program with setup and draw | - [x] At least 1 variable 		| - [x] Nested if statements
+- [x]	| 																	| - [x] At least 1 if statement	| - [x] Boolean variables
+- [x]	|																		| - [x] Several variables 			| - [ ] Complex boolean conditions
 
 
 ## Loops
 
-### Baseline (4 marks)
+Baseline (4 marks)															| Basic (max 2 marks) 			| Advanced (max 2 marks)
+---------------------------------------					| ----------------------------- | --------------------------------
+- [x] Your program uses at lease one basic loop | - [x] At least 1 variable 		| - [x] Nested if statements
+																								| - [x] At least 1 if statement	| - [x] Boolean variables
+																								| - [x] Several variables 			| - [ ] Complex boolean conditions
+<!-- ## Loops
 
-- [x] Your program uses ar lease one basic loop
+### Baseline (4 marks)
+- [x] Your program uses at lease one basic loop
 
 ### Basic (max 2 marks)
 
@@ -95,4 +101,4 @@ Baseline (4 marks) | Basic (max 2 marks) | Advanced (max 2 marks)
 
 - [ ] This is one of the most complex programmes in the lab in terms of amount of code and quality of design. beyond 1st year level, tackling 2nd or 3rd year level problems (1 mark)
 - [ ] Approaching professional level software (3 marks)
-- [ ] One of the most impressive pieces of software I've ever used (5 marks)
+- [ ] One of the most impressive pieces of software I've ever used (5 marks) -->
