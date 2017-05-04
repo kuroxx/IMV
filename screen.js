@@ -19,7 +19,7 @@ function startScreen() {
 
 function mainScreen() {
 	drawRain();	
- 	// drawMusicBox();
+ 	drawMusicBox();
  	navigator();
 
  	if (screen) {
@@ -49,7 +49,6 @@ function instructionScreen () {
 	textSize(50);
   	text("Get creative!", width / 2, height / 2 + 200);
 }
-
 /* ------------------------------
     	Buttons
 ------------------------------ */
@@ -103,7 +102,6 @@ function mousePressed () {
   		return false;
   	}
 }
-
 /* ------------------------------
     	Key Press
 ------------------------------ */

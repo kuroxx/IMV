@@ -1,28 +1,35 @@
 /* ------------------------------
     To Preload
 ------------------------------ */
-var sounds;
+var music;
 var beats;
+var sounds;
 var imgs = [];
 
 function loadAllSound(){
-	var soundNames = ['shigatsu.mp3', 'bradovic_piano.wav', 'orchestra_piano.wav', 'symphony_sounds.wav'];
+	var musicNames = ['orchestra_piano.wav'];
+	// var soundNames = ['shigatsu.mp3', 'bradovic_piano.wav', 'orchestra_piano.wav', 'symphony_sounds.wav'];
+	var soundNames = ['single-vio.wav', 'single-vio-2.wav'];
 
-	var beatNames = ['hat.wav', 'water-beat.wav'];
+	var beatNames = ['hat.wav'];
+
+	music = musicNames.map(function(name) {
+		return loadSound('assets/music/' + name);
+	});
 
 	sounds = soundNames.map(function(name) {
-		return loadSound('assets/' + name);
+		return loadSound('assets/sounds/' + name);
 	});
 
 	beats = beatNames.map(function(name2) {
-		return loadSound('assets/' + name2);
+		return loadSound('assets/beats/' + name2);
 	});
 }
 
 function loadAllImg () {
 	var imgNames = ['note.png', 'ufo.png'];
 	for (var i = 0; i < imgNames.length; i++) {
-		imgs.push(loadImage("assets/" + imgNames[i]));
+		imgs.push(loadImage("assets/img/" + imgNames[i]));
 	}
 }
 
@@ -30,7 +37,6 @@ function preload() {
 	loadAllSound();
 	loadAllImg();
 }
-
 /* ------------------------------
     	Setup
 ------------------------------ */
@@ -48,16 +54,11 @@ function setup() {
 	// sounds[0].play();
 	// sounds[0].setVolume(0.5);
 
-	// if (collide == true) {
-	// 	sounds[0].play();
-	// }
-
 // console.log(rain);
  
 button = createButton('Add');
 button.mousePressed(toggle);
 }
-
 /* ------------------------------
     	Draw
 ------------------------------ */
@@ -73,5 +74,4 @@ function draw() {
 	} else if (state == 2) {
 		instructionScreen();
 	}
-
 }

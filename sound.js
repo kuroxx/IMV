@@ -31,19 +31,14 @@ function toggle () {
 		}
 }
 
-function playMusic() {
-    if (!sounds[0].isPlaying() && state == 1){
-    	// if(collide == true) {
-			// sounds[0].play();
-	  //   	sounds[0].setVolume(0.5);
-	    	// button.html("Pause");
-    	// }
+function playSound() {
+    if (!sounds[1].isPlaying() && state == 1){
+			sounds[1].play();
+	    	sounds[1].setVolume(1.5);
 	} else {
-	  	sounds[0].pause(); 
-	  	// button.html("Play");
+	  	sounds[1].pause(); 
 	}
 }
-
 /* ------------------------------
     	Beats
 ------------------------------ */
@@ -71,5 +66,4 @@ function playBeat () {
 	}
 
 console.log(generatedBeat);
-
 }
