@@ -1,6 +1,8 @@
 /* ------------------------------
     	Screen States
 ------------------------------ */
+var screen = true;
+
 function startScreen() {
 	fill(255);
 	textAlign(CENTER);
@@ -15,19 +17,16 @@ function startScreen() {
 	howToButton.display();
 }
 
-var screen = true;
-
 function mainScreen() {
 	drawRain();	
  	// drawMusicBox();
- 	drawNavigator();
+ 	navigator();
 
  	if (screen) {
  		drawAmp();
  	} else if (!screen) {
  		drawGalaxy();
  	}
-
 }
 
 function instructionScreen () {
@@ -127,9 +126,10 @@ function keyPressed () {
 	} 
 
 	// Horizontal movement
-	if (keyCode == RIGHT_ARROW && navX < height && navX > 0) {
+	if (keyCode == RIGHT_ARROW && navX < width && navX > 0) {
 		navX+=10;
-	} else if (keyCode == LEFT_ARROW && navX < height && navX > 0) {
+		timer = 0;
+	} else if (keyCode == LEFT_ARROW && navX < width && navX > 0) {
 		navX-=10;
 	} 
 

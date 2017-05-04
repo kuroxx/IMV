@@ -2,13 +2,20 @@
     To Preload
 ------------------------------ */
 var sounds;
+var beats;
 var imgs = [];
 
 function loadAllSound(){
 	var soundNames = ['shigatsu.mp3', 'bradovic_piano.wav', 'orchestra_piano.wav', 'symphony_sounds.wav'];
 
+	var beatNames = ['hat.wav', 'water-beat.wav'];
+
 	sounds = soundNames.map(function(name) {
 		return loadSound('assets/' + name);
+	});
+
+	beats = beatNames.map(function(name2) {
+		return loadSound('assets/' + name2);
 	});
 }
 
@@ -28,9 +35,6 @@ function preload() {
     	Setup
 ------------------------------ */
 var amp;
-var osc;
-var env;
-var playing = false;
 
 function setup() {
   createCanvas(600, 600);
@@ -39,9 +43,10 @@ function setup() {
 	playOsc();
 
 	createGalaxy();
+	makeBeat();
 	
-	sounds[0].play();
-	sounds[0].setVolume(0.5);
+	// sounds[0].play();
+	// sounds[0].setVolume(0.5);
 
 	// if (collide == true) {
 	// 	sounds[0].play();
@@ -49,10 +54,17 @@ function setup() {
 
 // console.log(rain);
  
-button = createButton('play/pause');
+button = createButton('Add');
 button.mousePressed(toggle);
 
 }
+
+/* ------------------------------
+    	Sound
+------------------------------ */
+var osc;
+var env;
+var playing = false;
 
 function playOsc () {
 	// Oscillator object
@@ -85,8 +97,8 @@ function toggle () {
 function playMusic() {
     if (!sounds[0].isPlaying() && state == 1){
     	// if(collide == true) {
-			sounds[0].play();
-	    	sounds[0].setVolume(0.5);
+			// sounds[0].play();
+	  //   	sounds[0].setVolume(0.5);
 	    	// button.html("Pause");
     	// }
 	} else {
