@@ -4,72 +4,43 @@ An interactive music visualiser.
 
 ## Variables & if statements
 
-[x] 	| Baseline (4 marks) 								| Basic (max 2 marks) 					| Advanced (max 2 marks)
----------------------|------------------ 	| ----------------------------- | --------------------------------
-- [x]	| Basic program with setup and draw | - [x] At least 1 variable 		| - [x] Nested if statements
-- [x]	| 																	| - [x] At least 1 if statement	| - [x] Boolean variables
-- [x]	|																		| - [x] Several variables 			| - [ ] Complex boolean conditions
-
-
+Baseline (4 marks) 					|  [x] 	| 		Basic (max 2 marks) 	|  [x] 	| Advanced (max 2 marks)			|  [x] 	   
+---------------------------------	| ----- | ---------------------------- 	| ----- | -----------------------------  	| ------
+Basic program with setup and draw	| - [x]	| 	At least 1 variable 		| - [x]	| 	Nested if statements   		 	| - [x]	
+									| 		| 	At least 1 if statement		| - [x]	|	Boolean variables       		| - [x]									
+									| 		|	Several variables 			| - [x]	| 	Complex boolean conditions  	| - [x]	 
+									| 	1	|								| 	3	| 								  	| 	3	 
+	
 ## Loops
 
-Baseline (4 marks)															| Basic (max 2 marks) 			| Advanced (max 2 marks)
----------------------------------------					| ----------------------------- | --------------------------------
-- [x] Your program uses at lease one basic loop | - [x] At least 1 variable 		| - [x] Nested if statements
-																								| - [x] At least 1 if statement	| - [x] Boolean variables
-																								| - [x] Several variables 			| - [ ] Complex boolean conditions
-<!-- ## Loops
-
-### Baseline (4 marks)
-- [x] Your program uses at lease one basic loop
-
-### Basic (max 2 marks)
-
-- [x] Many loops
-- [x] Nested loop
-- [x] Using the loop variable
-
-### Advanced (max 2 marks)
-
-- [ ] Non-standard loop (e.g. backwards)
-- [ ] Searching or otherwise breaking out of loops with break or return
-- [ ] While loop
+Baseline (4 marks) 							|  [x] 	| 		Basic (max 2 marks) 	|  [x] 	| Advanced (max 2 marks)												|  [x] 	   
+---------------------------------			| ----- | ---------------------------- 	| ----- | -----------------------------  										| ------
+Your program uses at lease one basic loop	| - [x]	| 	Many loops			 		| - [x]	| 	Non-standard loop (e.g. backwards) 		 							| - [x]	
+											| 		| 	Nested loop					| - [x]	|	Searching or otherwise breaking out of loops with break or return	| - [x]
+											| 		|	Using the loop variable 	| - [x]	| 	While loop  														| - [x]	 
+											| 	1	|								| 	3	| 								  										| 	3	 
 
 ## Arrays
 
-### Baseline (4 marks)
-
-- [x] Your program uses at least one basic array
-
-### Basic (max 2 marks)
-
-- [x] Loops with arrays
-- [ ] Functional programming (map, filter, reduce, etc)
-- [ ] Arrays of objects
-
-### Advanced (max 2 marks)
-
-- [x] 2D arrays
-- [ ] Random access of arrays
-- [ ] Random insertion/splicing arrays
+Baseline (4 marks) 							|  [x] 	| 		Basic (max 2 marks) 							|  [x] 	| Advanced (max 2 marks)				|  [x] 	   
+---------------------------------			| ----- | ---------------------------- 							| ----- | -----------------------------  		| ------
+Your program uses at lease one basic array	| - [x]	| 	Loops with arrays			 						| - [x]	| 	2D arrays 		 					| - [x]	
+											| 		| 	Functional programming (map, filter, reduce, etc)	| - [x]	|	Random access of arrays				| - [x]
+											| 		|	Arrays of objects 									| - [x]	| 	Random insertion/splicing arrays 	| - [x]	 
+											| 	1	|														| 	3	| 								 		| 	3	 
 
 ## Functions
 
-### Baseline (4 marks)
+Baseline (4 marks) 										|  [x] 	| 		Basic (max 2 marks) 										|  [x] 	| Advanced (max 2 marks)				|  [x] 	   
+---------------------------------						| ----- | ---------------------------- 										| ----- | -----------------------------  		| ------
+Your program uses at least one function defined by you	| - [x]	| 	Most of your code is in your own functions not draw, setup etc	| - [x]	| 	Anonymous functions 		 		| - [x]	
+														| 		| 	Parameterised functions  										| - [x]	|	Functions that return different things depending on conditions or use conditions to return at different points in the function	| - [x]
+														| 		|	Return values 													| - [x]	| 	Passing functions as arguments 		| - [x]	 
+														| 	1	|																	| 	3	| 								 		| 	3	 
+			
 
-- [x] Your program uses at least one function defined by you
 
-### Basic (max 2 marks)
-
-- [x] Most of your code is in your own functions not draw, setup etc
-- [x] Parameterised functions  
-- [x] Return values
-
-### Advanced (max 2 marks)
-
-- [x] Anonymous functions
-- [x] Functions that return different things depending on conditions or use conditions to return at different points in the function
-- [x] Passing functions as arguments
+<!-- ## Loops
 
 ## Objects/classes
 
