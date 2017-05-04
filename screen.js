@@ -119,17 +119,21 @@ function keyPressed () {
 	}
 
 	// Vertical movement
-	if (keyCode == UP_ARROW && navY < height && navY > 0) {
+	if (keyCode == UP_ARROW && 
+		navY <= height && navY > 0) {
 		navY-=10;
-	} else if (keyCode == DOWN_ARROW && navY < height && navY > 0) {
+	} else if (keyCode == DOWN_ARROW && 
+		navY < height && navY >= 0) {
 		navY+=10;
 	} 
 
 	// Horizontal movement
-	if (keyCode == RIGHT_ARROW && navX < width && navX > 0) {
+	if (keyCode == RIGHT_ARROW && 
+		navX < width && navX >= 0) {
 		navX+=10;
 		timer = 0;
-	} else if (keyCode == LEFT_ARROW && navX < width && navX > 0) {
+	} else if (keyCode == LEFT_ARROW && 
+		navX <= width && navX > 0) {
 		navX-=10;
 	} 
 

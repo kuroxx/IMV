@@ -56,55 +56,6 @@ function setup() {
  
 button = createButton('Add');
 button.mousePressed(toggle);
-
-}
-
-/* ------------------------------
-    	Sound
------------------------------- */
-var osc;
-var env;
-var playing = false;
-
-function playOsc () {
-	// Oscillator object
-	osc = new p5.Oscillator();
-	osc.setType('sine');
-	
-	env = new p5.Env();
-	// Attack, Decay, Sustain, Release
-	env.setADSR(0.05, 0.2, 0.5, 0.1);
-	// Attack, Release vol
-	env.setRange(1, 0);
-}
-
-function toggle () {
-// if (mouseX > 0 && mouseX < width && mouseY < height && mouseY > 0) {
-		if(!playing) {
-			osc.start();
-			osc.amp(env);
-			osc.freq(440); // Note A
-			
-			env.play();
-			playing = true;				
-		} else {
-			// osc.stop();
-			playing = false;
-		}
-	// }
-}
-
-function playMusic() {
-    if (!sounds[0].isPlaying() && state == 1){
-    	// if(collide == true) {
-			// sounds[0].play();
-	  //   	sounds[0].setVolume(0.5);
-	    	// button.html("Pause");
-    	// }
-	} else {
-	  	sounds[0].pause(); 
-	  	// button.html("Play");
-	}
 }
 
 /* ------------------------------
