@@ -6,13 +6,10 @@ An interactive music visualiser.
 
 Baseline (4 marks) | Basic (max 2 marks) | Advanced (max 2 marks)
 ------------ | -------------| -------------
-- [x] Basic program with setup and draw | 
-- [x] At least 1 variable 
-- [x] At least 1 if statement 
-- [x] Several variables |
-- [x] Nested if statements
-- [x] Boolean variables
-- [ ] Complex boolean conditions
+- [x] Basic program with setup and draw | - [x] At least 1 variable 	| - [x] Nested if statements
+										| - [x] At least 1 if statement	| - [x] Boolean variables
+										| - [x] Several variables 		| - [ ] Complex boolean conditions
+
 
 ## Loops
 
