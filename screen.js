@@ -18,6 +18,12 @@ function startScreen() {
 }
 
 function mainScreen() {
+	// Buttons
+	playNoteButton.display();
+	song1Button.display();
+	song2Button.display();
+	song3Button.display();
+	
 	drawRain();	
  	drawMusicBox();
  	navigator();
@@ -41,8 +47,8 @@ function instructionScreen () {
 	line(100, height / 6 + 50, 500, height / 6 + 50);
 
 	textSize(20);
-	text("Use your MOUSE to interact with elements on screen", width / 2, height / 3 );
-	text("Use ARROW KEYS to navigate and create different effects", width / 2, height / 3 + 50);
+	text("Drag MOUSE to draw and aim over the boxes", width / 2, height / 3 );
+	text("Use ARROW KEYS to navigate and create beats", width / 2, height / 3 + 50);
 	text("Use the SPACEBAR to switch screens", width / 2, height / 3 + 100);
 	text("(Press Esc to go back)", width / 2, height / 3 + 150);
 
@@ -52,8 +58,12 @@ function instructionScreen () {
 /* ------------------------------
     	Buttons
 ------------------------------ */
-var startButton = button(200, 400, 20, "Start");
-var howToButton = button(300, 400, 20, "How to");
+var startButton = new button(200, 400, 20, "Start");
+var howToButton = new button(300, 400, 20, "How to");
+var playNoteButton = new button (250, 550, 50, "Play Note");
+var song1Button = new button (10, 10, 50, "Song1");
+var song2Button = new button (120, 10, 50, "Song2");
+var song3Button = new button (230, 10, 50, "Song3");
 
 function button(_x, _y, _colour, _label) {
 	var b = {
@@ -86,6 +96,7 @@ function button(_x, _y, _colour, _label) {
 }
 
 function mousePressed () {
+	// Start Screen
 	if (mouseX > startButton.x && 
 		mouseY > startButton.y && 
 		mouseX < startButton.x + startButton.w && 
@@ -98,8 +109,60 @@ function mousePressed () {
 		mouseY < howToButton.y + howToButton.h && 
 		state == 0) {
 			state = 2;
-  	} else {
-  		return false;
+
+	// Main Screen
+	// Playe Note
+	} else if (mouseX > playNoteButton.x && 
+		mouseY > playNoteButton.y && 
+		mouseX < playNoteButton.x + playNoteButton.w && 
+		mouseY < playNoteButton.y + playNoteButton.h && 
+		state == 1) {
+			playNote();
+
+	// Song1
+	} else if (mouseX > song1Button.x && 
+		mouseY > song1Button.y && 
+		mouseX < song1Button.x + song1Button.w && 
+		mouseY < song1Button.y + song1Button.h && 
+		state == 1 && !music[1].isPlaying() && !music[2].isPlaying()) {
+
+			if (!music[0].isPlaying()){
+				music[0].play();
+		    	music[0].setVolume(1);
+			} else {
+			  	music[0].stop(); 
+			}	
+
+	// Song2
+	} else if (mouseX > song2Button.x && 
+		mouseY > song2Button.y && 
+		mouseX < song2Button.x + song2Button.w && 
+		mouseY < song2Button.y + song2Button.h && 
+		state == 1 && !music[0].isPlaying() && !music[2].isPlaying()) {
+
+			if (!music[1].isPlaying()){
+				music[1].play();
+		    	music[1].setVolume(1);
+			} else {
+			  	music[1].stop(); 
+			}	
+
+	//Song3	
+	} else if (mouseX > song3Button.x && 
+		mouseY > song3Button.y && 
+		mouseX < song3Button.x + song3Button.w && 
+		mouseY < song3Button.y + song3Button.h && 
+		state == 1  && !music[0].isPlaying() && !music[1].isPlaying()) {
+
+			if (!music[2].isPlaying()){
+				music[2].play();
+		    	music[2].setVolume(1);
+			} else {
+			  	music[2].stop(); 
+			}	
+
+	} else {
+		return false;
   	}
 }
 /* ------------------------------
@@ -133,6 +196,7 @@ function keyPressed () {
 	} else if (keyCode == LEFT_ARROW && 
 		navX <= width && navX > 0) {
 		navX-=10;
+		timer = 0;
 	} 
 
 	return false; // To prevent any default behaviour

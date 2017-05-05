@@ -39,24 +39,22 @@ function drawRain() {
 		rain[i].fall();
 	}
 
-	if (rain.length > 30) {
-		rain.splice(0, 1);
+	if (rain.length > 100) {
+		rain.splice(random(0, rain.length), 10);
 	}
 }
 /* ------------------------------
     	Music Box
 ------------------------------ */
-var musicBox1 = new MusicBox(100, 100);
-var musicBox2 = new MusicBox(400, 400);
+var musicBox1 = new MusicBox(200, 300);
+var musicBox2 = new MusicBox(400, 300);
 
 function MusicBox(_x, _y) {
- var col = 255;
- // var col = color(255, 255, 255, 0.75);
-	
 	this.x = _x;
 	this.y = _y;
 	this.w = 30;
 	this.h = 30;
+	this.col = 40;
 	
 	this.intersects = function (other) {
 		var d = dist(this.x, this.y, other.x, other.y);
@@ -70,8 +68,16 @@ function MusicBox(_x, _y) {
 
 	this.displayBox = function () {
 		noStroke();
-		fill(col);
+		fill(this.col);
 		rect(this.x, this.y, this.w, this.h, 2);
+	}
+
+	this.update = function () {
+		this.col += 2;
+
+		if (this.col > 255) {
+			this.col = 20;
+		}
 	}
 }
 
@@ -81,20 +87,16 @@ function drawMusicBox () {
 
 	for (var i = 0; i < rain.length; i++) {
 		if(musicBox1.intersects(rain[i])){
-			playSound();
+			playSound1();
+			musicBox1.update();
 			break;
 		}
 	}
 
 	for (var i = 0; i < rain.length; i++) {
 		if(musicBox2.intersects(rain[i])){
-			if (!sounds[0].isPlaying() && state == 1){
-				sounds[0].play();
-		    	sounds[0].setVolume(0.5);
-			} else {
-			  	sounds[0].pause(); 
-			}
-		
+			playSound2();
+			musicBox2.update();
 			break;
 		}
 	}
@@ -131,23 +133,16 @@ function drawAmp() {
   	ampLevel.splice(0, 1);
   }
 }
-
-// function drawAmpl() {
-// // Draw Amplitude of Sound
-//   var level = amplitude.getLevel();
-//   var size = map(level, 0, 1, 0, 500);
-//   fill(255);
-//   ellipse(width/2, height/2, size, size);
-// }
 /* ------------------------------
     	Screen 2
 ------------------------------ */
 var galaxy = [];
+var brightLevel; 
 
 function createGalaxy () {
 var col = 5;
 var row = 5;
-	// console.log(galaxy);
+
 
 	for (var h = 0; h < col; h++) {
 			galaxy[h] = [];	
@@ -162,23 +157,15 @@ var row = 5;
 
 function drawGalaxy () {
 	var level = amp.getLevel();
-	ampSize = map(level, 0, 1, 0, 200);
-		console.log(ampSize);
+	brightLevel = level * 100;
+		console.log(brightLevel); 
 
 	for (var h = 0; h < galaxy.length; h++) {
-		for (var v = 0; v < galaxy.length; v++) {
-			galaxy[h][v].draw(ampSize);
+		for (var v = 0 ; v < galaxy.length; v++) {
+			galaxy[h][v].draw();
 			galaxy[h][v].update();
-
-			// SOMTHING
-			// if (galaxy[h][v].SOMETHING < 0) {
-			// 	galaxy[h][v].splice(v, 1)
-			// }
 		}
 	}
-
-	// Random splice(index, how many)
-	// galaxy.splice(random(0, galaxy.length), 1);
 }
 
 // Constructor function
@@ -189,12 +176,12 @@ function Star (_x, _y) {
 
 	this.update = function() {
 		this.x += random(-1, 1);
-		this.y += random(-1, 1);			
+		this.y += random(-1, 1);	
+		this.size = brightLevel;	
 	}
 
 	this.draw = function() {
 		noStroke();
-
 		fill(255, 150);
 		ellipse(this.x, this.y, this.size, this.size);
 	}
@@ -209,19 +196,24 @@ var timer = 0;
 function navigator () {
 	this.x = navX;
 	this.y = navY;
+	this.w = 100;
+	this.h = 100;
 	
-	fill(255);
-
-	if(this.x > width/2){
-		while (timer < 2) {
-			playBeat();
-			timer++;
+		if(this.x > width/2){
+			while (timer < 3) {
+				playBeat();
+				timer++;
+			}
+			// Ufo img	
+			image(imgs[1], this.x - imgs[1].width/4, this.y - imgs[1].height/4, this.w, this.h);
+		} else if (this.x <= width/2) {
+			// Music note img
+			image(imgs[0], this.x - imgs[0].width/4, this.y - imgs[0].height/4, this.w, this.h);
+			
+			while (timer < 3) {
+				beats[1].play();
+				timer++;
+			}
 		}
-
-		// Ufo img	
-		image(imgs[1], this.x - imgs[1].width/4, this.y - imgs[1].height/4, 100, 100);
-	} else {
-		// Music note img
-		image(imgs[0], this.x - imgs[0].width/4, this.y - imgs[0].height/4, 100, 100);
-	}
+	
 }

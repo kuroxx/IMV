@@ -7,11 +7,11 @@ var sounds;
 var imgs = [];
 
 function loadAllSound(){
-	var musicNames = ['orchestra_piano.wav'];
-	// var soundNames = ['shigatsu.mp3', 'bradovic_piano.wav', 'orchestra_piano.wav', 'symphony_sounds.wav'];
+	var musicNames = ['bradovic_piano.wav', 'orchestra_piano.wav', 'symphony_sounds.wav'];
+
 	var soundNames = ['single-vio.wav', 'single-vio-2.wav'];
 
-	var beatNames = ['hat.wav'];
+	var beatNames = ['hat.wav', 'drum.wav'];
 
 	music = musicNames.map(function(name) {
 		return loadSound('assets/music/' + name);
@@ -46,13 +46,9 @@ function setup() {
   createCanvas(600, 600);
 		
 	amp = new p5.Amplitude();
-	playOsc();
-
+	createEnv();
 	createGalaxy();
-	makeBeat();
-	 
-button = createButton('Add');
-button.mousePressed(toggle);
+	createBeat();
 }
 /* ------------------------------
     	Draw
