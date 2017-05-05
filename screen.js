@@ -47,7 +47,7 @@ function instructionScreen () {
 	line(100, height / 6 + 50, 500, height / 6 + 50);
 
 	textSize(20);
-	text("Drag MOUSE to draw and aim over the boxes", width / 2, height / 3 );
+	text("Use MOUSE to click, draw and aim over the boxes", width / 2, height / 3 );
 	text("Use ARROW KEYS to navigate and create beats", width / 2, height / 3 + 50);
 	text("Use the SPACEBAR to switch screens", width / 2, height / 3 + 100);
 	text("(Press Esc to go back)", width / 2, height / 3 + 150);

@@ -25,20 +25,16 @@ function playNote () {
 }
 
 function playSound1 () {
-	if (!sounds[0].isPlaying() && state == 1){
+	if (!sounds[0].isPlaying()){
 		sounds[0].play();
     	sounds[0].setVolume(1);
-	} else {
-	  	sounds[0].stop(); 
-	}	
+	} 
 }
 
 function playSound2() {
-    if (!sounds[1].isPlaying() && state == 1){
+    if (!sounds[1].isPlaying()){
 			sounds[1].play();
 	    	sounds[1].setVolume(1);
-	} else {
-	  	sounds[1].stop(); 
 	}
 }
 /* ------------------------------
