@@ -1,0 +1,23 @@
+{
+  "name": "imv",
+  "version": "1.0.0",
+  "description": "Interactive music visualiser",
+  "main": "index.html",
+  "dependencies": {
+    "gh-pages": "^2.2.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "deploy": "gh-pages -d dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kuroxx/IMV.git"
+  },
+  "author": "Anni Chen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kuroxx/IMV/issues"
+  },
+  "homepage": "https://kuroxx.github.io/IMV"
+}
